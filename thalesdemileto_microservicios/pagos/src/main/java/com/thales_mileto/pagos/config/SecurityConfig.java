@@ -1,0 +1,161 @@
+package com.thales_mileto.pagos.config;
+
+import lombok.RequiredArgsConstructor;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+
+import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
+
+@Configuration
+@RequiredArgsConstructor
+public class SecurityConfig {
+
+    private final LoginValidationFilter loginValidationFilter;
+
+    @Bean
+    public SecurityFilterChain filterChain(
+            HttpSecurity http
+    ) throws Exception {
+
+        http
+                // ===========================================
+                // CORS
+                // ===========================================
+
+                .cors(cors ->
+                        cors.configurationSource(
+                                corsConfigurationSource()
+                        )
+                )
+
+                // ===========================================
+                // DESACTIVAR CSRF
+                // API REST SIN SESIONES
+                // ===========================================
+
+                .csrf(csrf ->
+                        csrf.disable()
+                )
+
+                // ===========================================
+                // SESIONES STATELESS
+                // ===========================================
+
+                .sessionManagement(session ->
+                        session.sessionCreationPolicy(
+                                SessionCreationPolicy.STATELESS
+                        )
+                )
+
+                // ===========================================
+                // AUTORIZACIÓN DE ENDPOINTS
+                // ===========================================
+
+                .authorizeHttpRequests(auth -> auth
+
+                        .requestMatchers(
+                                "/api/pagos/public/**"
+                        ).permitAll()
+
+                        .requestMatchers(
+                                "/error"
+                        ).permitAll()
+
+                        .anyRequest().authenticated()
+                )
+
+                // ===========================================
+                // FILTRO DE LOGIN
+                // ===========================================
+
+                .addFilterBefore(
+                        loginValidationFilter,
+                        UsernamePasswordAuthenticationFilter.class
+                );
+
+        return http.build();
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+
+        CorsConfiguration configuration =
+                new CorsConfiguration();
+
+        // ===============================================
+        // FRONTENDS PERMITIDOS
+        // ===============================================
+
+        configuration.setAllowedOrigins(
+                List.of(
+                        "http://localhost:3000",
+                        "http://127.0.0.1:3000",
+                        "http://localhost:5500",
+                        "http://127.0.0.1:5500"
+                )
+        );
+
+        // ===============================================
+        // MÉTODOS HTTP PERMITIDOS
+        // ===============================================
+
+        configuration.setAllowedMethods(
+                List.of(
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "DELETE",
+                        "OPTIONS"
+                )
+        );
+
+        // ===============================================
+        // HEADERS PERMITIDOS
+        // ===============================================
+
+        configuration.setAllowedHeaders(
+                List.of(
+                        "Authorization",
+                        "Content-Type",
+                        "Accept",
+                        "Origin"
+                )
+        );
+
+        // ===============================================
+        // HEADERS VISIBLES PARA EL FRONTEND
+        // ===============================================
+
+        configuration.setExposedHeaders(
+                List.of(
+                        "Authorization"
+                )
+        );
+
+        configuration.setAllowCredentials(false);
+
+        configuration.setMaxAge(3600L);
+
+        UrlBasedCorsConfigurationSource source =
+                new UrlBasedCorsConfigurationSource();
+
+        source.registerCorsConfiguration(
+                "/**",
+                configuration
+        );
+
+        return source;
+    }
+}

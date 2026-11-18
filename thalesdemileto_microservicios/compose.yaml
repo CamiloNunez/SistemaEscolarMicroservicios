@@ -1,0 +1,6 @@
+services:
+  login:
+    build: ./login
+    ports:
+      - "8080:10000"
+    restart: unless-stopped

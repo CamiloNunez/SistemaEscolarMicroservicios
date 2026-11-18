@@ -1,0 +1,4 @@
+spring.application.name=login
+spring.data.mongodb.uri=
+jwt.secret=ThalesDeMiletoJWTSecretTemporalDesarrolloHS512ClaveSegura1234567890ABCDEF
+jwt.expiration=86400000

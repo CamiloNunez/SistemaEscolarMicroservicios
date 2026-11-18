@@ -1,0 +1,14 @@
+{
+  "environment": "REEMPLAZAR: identificador del entorno aislado, fecha y responsable",
+  "server": {
+    "cpu": "REEMPLAZAR", "ramGB": null, "os": "REEMPLAZAR",
+    "storage": "REEMPLAZAR", "network": "REEMPLAZAR",
+    "serviceInstancesAndResourceLimits": "REEMPLAZAR",
+    "javaVersion": "REEMPLAZAR", "mongoVersion": "REEMPLAZAR"
+  },
+  "generator": { "ramGB": null, "sameMachineAsServer": true },
+  "dataset": { "generationMethod": "REEMPLAZAR", "databaseSizeBytes": null },
+  "collections": [
+    { "name": "REEMPLAZAR: base.coleccion", "count": null }
+  ]
+}

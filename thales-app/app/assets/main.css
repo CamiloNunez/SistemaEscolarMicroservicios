@@ -1,0 +1,980 @@
+/* =========================================================
+   THALES DE MILETO - UI SaaS Clean Theme
+   Base visual moderna, clara y sobria
+   ========================================================= */
+
+/* ── Variables globales ───────────────────────────────── */
+:root {
+  --thales-primary: #5b0014;
+  --thales-primary-dark: #43000f;
+  --thales-primary-soft: #f8eef1;
+
+  --thales-gold: #d6a629;
+  --thales-gold-soft: #f8f1dc;
+
+  --color-bg: #ffffff;
+  --color-surface: #ffffff;
+  --color-surface-soft: #ffffff;
+
+  --color-border: #e5e7eb;
+  --color-border-soft: #eef0f3;
+
+  --color-title: #111827;
+  --color-text: #374151;
+  --color-muted: #6b7280;
+  --color-light: #9ca3af;
+
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow-md: 0 4px 12px rgba(16, 24, 40, 0.08);
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Escala de espaciado (grid de 4px) — usar siempre estos valores
+     en vez de números sueltos para mantener un ritmo vertical consistente */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+}
+
+/* ── Reset visual base ───────────────────────────────── */
+html,
+body,
+#__nuxt,
+.v-application {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  font-family: Inter, Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+/* Evita fondo crema heredado en layouts */
+.v-main,
+.v-container,
+.v-application__wrap {
+  background: transparent !important;
+}
+/* ── Header / App bar ────────────────────────────────── */
+.app-header,
+.v-app-bar {
+  background: var(--color-surface) !important;
+  color: var(--color-title) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  box-shadow: none !important;
+}
+
+.app-header .v-toolbar-title,
+.app-header .v-app-bar-title,
+.app-header span,
+.v-app-bar span {
+  color: var(--color-title) !important;
+  font-weight: 700 !important;
+}
+
+.header-title {
+  color: var(--color-title) !important;
+  font-weight: 800 !important;
+}
+
+.header-menu-btn,
+.v-app-bar .v-btn,
+.v-app-bar .v-icon {
+  color: var(--color-text) !important;
+}
+
+.v-app-bar .v-btn:hover {
+  background: var(--color-surface-soft) !important;
+}
+
+/* Usuario en header */
+.header-avatar,
+.v-app-bar .v-avatar {
+  background: var(--thales-primary-soft) !important;
+  color: var(--thales-primary) !important;
+}
+
+.header-avatar .v-icon,
+.v-app-bar .v-avatar .v-icon {
+  color: var(--thales-primary) !important;
+}
+
+.header-user-name {
+  color: var(--color-title) !important;
+  line-height: 1.2;
+}
+
+.header-user-role {
+  color: var(--color-muted) !important;
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.v-app-bar p {
+  color: var(--color-muted) !important;
+}
+
+.v-app-bar p:first-child {
+  color: var(--color-title) !important;
+}
+
+/* ── Sidebar ─────────────────────────────────────────── */
+.sidebar-nav,
+.v-navigation-drawer {
+  background: var(--color-surface) !important;
+  border-right: 1px solid var(--color-border) !important;
+  box-shadow: none !important;
+}
+
+.sidebar-nav .v-list {
+  background: transparent !important;
+}
+
+/* Marca / logo */
+.sidebar-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--space-3) !important;
+  min-height: 86px !important;
+  padding: var(--space-5) var(--space-4) !important;
+  border-radius: 0 !important;
+}
+
+.sidebar-brand:hover {
+  background: transparent !important;
+}
+
+.sidebar-logo {
+  width: 52px !important;
+  height: 52px !important;
+  object-fit: contain !important;
+  display: block;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+.sidebar-brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 0;
+}
+
+.sidebar-brand-title {
+  color: var(--color-title) !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -0.01em;
+}
+
+.sidebar-brand-subtitle {
+  color: var(--color-muted) !important;
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+  margin-top: var(--space-1);
+}
+
+.sidebar-nav .v-divider {
+  border-color: var(--color-border) !important;
+  opacity: 1 !important;
+}
+
+/* Menú */
+.sidebar-menu {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  padding: var(--space-3) var(--space-2) var(--space-2) !important;
+}
+
+.sidebar-menu--bottom {
+  padding-top: var(--space-3) !important;
+  padding-bottom: var(--space-3) !important;
+}
+
+.sidebar-nav .v-list-item {
+  min-height: 36px;
+}
+
+.sidebar-nav .v-list-item-title {
+  color: var(--color-text) !important;
+  font-size: 13.5px !important;
+  font-weight: 500;
+}
+
+.sidebar-nav .v-list-item-subtitle {
+  color: var(--color-muted) !important;
+}
+
+.sidebar-nav .v-icon {
+  color: var(--color-muted) !important;
+}
+
+/* Ítems del menú */
+.sidebar-item {
+  color: var(--color-text) !important;
+  border-radius: var(--radius-sm) !important;
+  padding-inline: var(--space-3) !important;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-item:hover {
+  background: var(--color-surface-soft) !important;
+}
+
+.sidebar-item:hover .v-list-item-title,
+.sidebar-item:hover .v-icon {
+  color: var(--color-title) !important;
+}
+
+.sidebar-item--active {
+  background: var(--thales-primary-soft) !important;
+  color: var(--thales-primary) !important;
+}
+
+.sidebar-item--active .v-list-item-title,
+.sidebar-item--active .v-icon {
+  color: var(--thales-primary) !important;
+  font-weight: 700 !important;
+}
+
+/* Ajustes cuando el drawer está en modo rail */
+.v-navigation-drawer--rail .sidebar-brand {
+  gap: 0 !important;
+  padding: var(--space-4) var(--space-2) !important;
+}
+
+.v-navigation-drawer--rail .sidebar-logo {
+  width: 42px !important;
+  height: 42px !important;
+}
+
+.v-navigation-drawer--rail .sidebar-menu {
+  padding-left: var(--space-2) !important;
+  padding-right: var(--space-2) !important;
+}
+
+.page-container {
+  background: white;
+  border-radius: 16px;
+}
+
+/* ── Logo principal ──────────────────────────────────── */
+.logo-box {
+  width: 92px;
+  height: 92px;
+  background: #ffffff;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  padding: 6px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Cards ───────────────────────────────────────────── */
+.main-card,
+.v-card {
+  background: var(--color-surface) !important;
+  color: var(--color-text) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.main-card:hover {
+  box-shadow: var(--shadow-md) !important;
+}
+
+/* Quita el efecto decorativo dorado exagerado */
+.main-card::before,
+.login-card::before {
+  display: none !important;
+}
+
+/* ── Títulos y textos ────────────────────────────────── */
+h1,
+h2,
+h3,
+.text-primary-title {
+  color: var(--color-title) !important;
+}
+
+h1 {
+  letter-spacing: -0.02em;
+}
+
+h2,
+.text-h6 {
+  color: var(--color-title) !important;
+}
+
+p,
+.v-card-text,
+.v-list-item-title {
+  color: var(--color-text);
+}
+
+.text-secondary,
+.text-muted,
+.text-grey,
+.text-grey-darken-1,
+.v-list-item-subtitle {
+  color: var(--color-muted) !important;
+}
+
+/* Corrige estilos inline rojos en títulos */
+h1[style],
+h2[style],
+p[style],
+.v-list-item-subtitle[style] {
+  color: var(--color-title) !important;
+}
+
+p.text-caption,
+.text-caption {
+  color: var(--color-muted) !important;
+}
+
+/* ── Iconos ──────────────────────────────────────────── */
+.v-icon {
+  color: var(--color-muted);
+}
+
+.v-icon.text-primary,
+.text-primary .v-icon,
+[color="primary"].v-icon,
+.v-icon[color="primary"] {
+  color: var(--thales-primary) !important;
+}
+
+[color="secondary"].v-icon,
+.v-icon[color="secondary"] {
+  color: var(--thales-gold) !important;
+}
+
+/* ── Avatares ────────────────────────────────────────── */
+.v-avatar {
+  box-shadow: none !important;
+}
+
+.v-avatar.bg-primary,
+.v-avatar[color="primary"] {
+  background: var(--thales-primary-soft) !important;
+  color: var(--thales-primary) !important;
+}
+
+.v-avatar.bg-secondary,
+.v-avatar[color="secondary"] {
+  background: var(--thales-gold-soft) !important;
+  color: #8a6400 !important;
+}
+
+.v-avatar .v-icon {
+  color: inherit !important;
+}
+
+/* ── Botones ─────────────────────────────────────────── */
+.v-btn {
+  border-radius: var(--radius-sm) !important;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-weight: 500 !important;
+  box-shadow: none !important;
+}
+
+/* Alturas contenidas: 34px por defecto, 28px pequeños, 40px grandes */
+.v-btn--size-default {
+  --v-btn-height: 34px;
+  --v-btn-size: 0.8125rem;
+  padding-inline: 14px !important;
+}
+
+.v-btn--size-small {
+  --v-btn-height: 28px;
+  --v-btn-size: 0.75rem;
+  padding-inline: 10px !important;
+}
+
+.v-btn--size-large {
+  --v-btn-height: 40px;
+  --v-btn-size: 0.875rem;
+}
+
+.v-btn .v-icon {
+  font-size: 1.15em;
+}
+
+.v-btn .v-btn__prepend,
+.v-btn .v-icon--start {
+  margin-inline-end: 6px !important;
+}
+
+/* Botones de icono: cuadrados y discretos (acciones en tablas, cerrar diálogos) */
+.v-btn--icon.v-btn--density-default {
+  width: calc(var(--v-btn-height) + 2px) !important;
+  height: calc(var(--v-btn-height) + 2px) !important;
+  padding-inline: 0 !important;
+}
+
+.v-btn--icon .v-icon {
+  font-size: 18px;
+}
+
+.v-btn--icon.v-btn--size-small .v-icon {
+  font-size: 17px;
+}
+
+.v-btn.v-btn--variant-outlined {
+  border-color: var(--color-border) !important;
+}
+
+.v-btn.v-btn--variant-outlined:hover {
+  border-color: #cfd4dc !important;
+}
+
+.v-btn.bg-primary,
+.v-btn[color="primary"],
+.btn-primary {
+  background: var(--thales-primary) !important;
+  color: #ffffff !important;
+}
+
+.v-btn.bg-primary:hover,
+.v-btn[color="primary"]:hover,
+.btn-primary:hover {
+  background: var(--thales-primary-dark) !important;
+}
+
+.v-btn.bg-secondary,
+.v-btn[color="secondary"],
+.btn-secondary {
+  background: var(--color-surface-soft) !important;
+  color: var(--color-title) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+.v-btn.bg-secondary:hover,
+.v-btn[color="secondary"]:hover,
+.btn-secondary:hover {
+  background: #e9ecef !important;
+}
+
+.btn-ghost,
+.v-btn.v-btn--variant-text {
+  color: var(--thales-primary) !important;
+}
+
+.btn-ghost:hover,
+.v-btn.v-btn--variant-text:hover {
+  background: var(--thales-primary-soft) !important;
+}
+
+/* ── Inputs Vuetify ──────────────────────────────────── */
+.v-field {
+  border-radius: var(--radius-sm) !important;
+  background: #ffffff !important;
+  font-size: 13.5px;
+}
+
+.v-field .v-field__input {
+  font-size: 13.5px;
+}
+
+.v-field .v-icon {
+  font-size: 18px;
+}
+
+.v-label,
+.v-field-label {
+  font-size: 13px !important;
+}
+
+.v-field-label--floating {
+  font-size: 11px !important;
+}
+
+.v-messages {
+  font-size: 11.5px;
+}
+
+.v-field:not(.v-field--focused):hover .v-field__outline {
+  color: #cfd4dc !important;
+}
+
+.v-field__outline {
+  color: var(--color-border) !important;
+}
+
+.v-field--focused .v-field__outline {
+  color: var(--thales-primary) !important;
+}
+
+.v-label,
+.v-field-label {
+  color: var(--color-muted) !important;
+}
+
+.v-field--focused .v-label,
+.v-field--focused .v-field-label {
+  color: var(--thales-primary) !important;
+}
+
+.v-text-field input,
+.v-textarea textarea {
+  color: var(--color-title) !important;
+}
+
+/* ── Chips ───────────────────────────────────────────── */
+.endpoint-chip,
+.v-chip {
+  border-radius: var(--radius-sm) !important;
+  font-weight: 600 !important;
+  border: none !important;
+}
+
+.v-chip.v-chip--size-small {
+  --v-chip-height: 22px;
+  font-size: 11.5px;
+  padding-inline: 8px;
+}
+
+.endpoint-chip {
+  background: var(--thales-primary-soft) !important;
+  color: var(--thales-primary) !important;
+}
+
+.endpoint-chip:hover {
+  background: var(--thales-primary) !important;
+  color: #ffffff !important;
+}
+
+/* ── Login ───────────────────────────────────────────── */
+.login-card {
+  max-width: 440px;
+  background: var(--color-surface) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 18px 40px rgba(16, 24, 40, 0.12) !important;
+}
+
+/* Neutraliza fondo rojo del login aunque esté inline */
+.v-container.fill-height {
+  background: var(--color-bg) !important;
+}
+
+.login-card h1 {
+  color: var(--color-title) !important;
+}
+
+.login-card .v-btn[color="primary"] {
+  height: 40px;
+}
+
+/* ── Alertas ─────────────────────────────────────────── */
+.v-alert {
+  border-radius: var(--radius-md) !important;
+  border: none !important;
+  box-shadow: none !important;
+  font-size: 13.5px;
+}
+
+/* ── Dashboard: estadísticas ─────────────────────────── */
+.text-h4 {
+  font-weight: 800 !important;
+  color: var(--color-title) !important;
+  letter-spacing: -0.03em;
+}
+
+/* Reduce colores fuertes de estadísticas */
+.main-card .v-icon[size="40"] {
+  color: var(--thales-primary) !important;
+}
+
+.main-card .text-h4[style] {
+  color: var(--color-title) !important;
+}
+
+/* ── Accesos rápidos ─────────────────────────────────── */
+.quick-access-icon {
+  color: var(--color-muted) !important;
+  transition: color 0.2s ease;
+}
+
+.main-card:hover .quick-access-icon,
+.quick-access-icon:hover {
+  color: var(--thales-primary) !important;
+}
+
+/* Cards clicables */
+a.v-card,
+.v-card[style*="cursor:pointer"] {
+  text-decoration: none !important;
+}
+
+a.v-card:hover,
+.v-card[style*="cursor:pointer"]:hover {
+  border-color: #d5d9e0 !important;
+}
+
+/* Avatares de accesos rápidos: neutros, no arcoíris */
+.v-card .v-avatar[color] {
+  background: var(--color-surface-soft) !important;
+  color: var(--thales-primary) !important;
+}
+
+.v-card .v-avatar[color] .v-icon {
+  color: var(--thales-primary) !important;
+}
+
+/* ── Actividad reciente ──────────────────────────────── */
+.activity-item-title {
+  color: var(--color-title) !important;
+  font-weight: 600;
+}
+
+.activity-item-subtitle {
+  color: var(--color-muted) !important;
+  font-size: 0.875rem;
+}
+
+.activity-item-time {
+  color: var(--color-light) !important;
+  font-size: 0.75rem;
+}
+
+.v-list {
+  background: transparent !important;
+}
+
+.v-list-item {
+  border-radius: var(--radius-md) !important;
+}
+
+.v-list-item:hover {
+  background: var(--color-surface-soft) !important;
+}
+
+/* ── Response terminal ───────────────────────────────── */
+.response-box {
+  background: #111827;
+  color: #e5e7eb;
+  padding: var(--space-4);
+  min-height: 220px;
+  white-space: pre-wrap;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow: auto;
+  border-radius: var(--radius-md);
+  border: none;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ── Tablas futuras ──────────────────────────────────── */
+.v-table,
+table {
+  background: var(--color-surface) !important;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border) !important;
+}
+
+.v-table th,
+table th {
+  color: var(--color-muted) !important;
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: #f8fafc !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  white-space: nowrap;
+}
+
+.v-table td,
+table td {
+  color: var(--color-text) !important;
+  font-size: 13px;
+  border-bottom: 1px solid var(--color-border-soft) !important;
+}
+
+.v-table--density-compact {
+  --v-table-header-height: 38px;
+  --v-table-row-height: 42px;
+}
+
+.v-data-table-footer {
+  font-size: 12.5px;
+  padding-block: 4px;
+}
+
+.v-data-table-footer .v-field {
+  font-size: 12.5px;
+}
+
+/* ── Scrollbar sobrio ────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7ccd4;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* ── Shell / layout ─────────────────────────────────── */
+.app-shell {
+  background: #ffffff !important;
+}
+
+.app-main {
+  background: transparent !important;
+}
+
+.app-main__inner {
+  min-height: calc(100vh - 64px);
+}
+
+.header-eyebrow {
+  font-size: 11px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-muted) !important;
+}
+
+.header-context-chip {
+  border: 1px solid rgba(91, 0, 20, 0.08) !important;
+}
+
+.sidebar-top {
+  padding-top: var(--space-2);
+}
+
+.sidebar-summary {
+  line-height: 1.45;
+}
+
+.sidebar-user {
+  border-top: 1px dashed var(--color-border);
+  margin: 0 var(--space-3);
+}
+
+.sidebar-item--danger .v-list-item-title,
+.sidebar-item--danger .v-icon {
+  color: #b42318 !important;
+}
+
+.sidebar-item--danger:hover {
+  background: #fff1f0 !important;
+}
+
+.user-menu-card {
+  background: #ffffff !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.15) !important;
+  overflow: hidden;
+}
+
+.user-menu-card .v-list {
+  background: #ffffff !important;
+}
+
+.user-menu-card .v-list-item {
+  min-height: 36px;
+  border-radius: var(--radius-sm);
+  margin: 4px 8px;
+}
+
+.user-menu-card .v-list-item:hover {
+  background: var(--thales-primary-soft) !important;
+}
+
+/* ── Contenedores de página ─────────────────────────── */
+.v-container.py-8 {
+  padding-top: 28px !important;
+  padding-bottom: 32px !important;
+}
+
+.v-container > .mb-6:first-child,
+.v-container > .d-flex.flex-wrap.align-center.justify-space-between.ga-3.mb-6:first-child,
+.v-container > .d-flex.align-center.ga-3.mb-6:first-child {
+  margin-bottom: 24px !important;
+}
+
+.v-container > .mb-6:first-child h1,
+.v-container > .d-flex.flex-wrap.align-center.justify-space-between.ga-3.mb-6:first-child h1,
+.v-container > .d-flex.align-center.ga-3.mb-6:first-child h1 {
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.03em;
+}
+
+.v-container > .mb-6:first-child p,
+.v-container > .d-flex.flex-wrap.align-center.justify-space-between.ga-3.mb-6:first-child p,
+.v-container > .d-flex.align-center.ga-3.mb-6:first-child p {
+  max-width: 820px;
+}
+
+/* ── Tablas y formularios ───────────────────────────── */
+.v-data-table,
+.v-data-table__wrapper,
+.v-data-table .v-table {
+  border-radius: var(--radius-lg) !important;
+}
+
+.v-data-table .v-table__wrapper > table {
+  min-width: 860px;
+}
+
+.v-data-table .v-data-table-header__content {
+  font-weight: 700 !important;
+  color: var(--color-muted) !important;
+}
+
+.v-data-table tbody tr:hover {
+  background: rgba(91, 0, 20, 0.03) !important;
+}
+
+.v-data-table td {
+  vertical-align: middle;
+}
+
+.v-dialog .v-card {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: 0 20px 55px rgba(15, 23, 42, 0.16) !important;
+}
+
+.v-dialog .v-card-title {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: var(--color-title) !important;
+}
+
+.v-card .v-card-subtitle {
+  color: var(--color-muted) !important;
+  opacity: 1 !important;
+}
+
+.v-empty-state,
+.empty-state-card {
+  border: 1px dashed var(--color-border) !important;
+  background: linear-gradient(180deg, #fff 0%, #fafbfc 100%) !important;
+}
+
+/* ── Snackbar y confirmaciones ──────────────────────── */
+.app-snackbar .v-snackbar__wrapper {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.22) !important;
+}
+
+.confirm-card {
+  overflow: hidden;
+}
+
+.confirm-card::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--thales-primary), var(--thales-gold));
+}
+
+/* ── Login refinado ─────────────────────────────────── */
+body:has(.login-page),
+body:has(.login-page) #__nuxt,
+body:has(.login-page) .v-application,
+body:has(.login-page) .v-application__wrap,
+body:has(.login-page) .v-main,
+body:has(.login-page) .v-container {
+  background: transparent !important;
+}
+
+.login-page {
+  min-height: 100vh !important;
+  background:
+    linear-gradient(
+      rgba(229, 210, 215, 0.72),
+      rgba(229, 210, 215, 0.72)
+    ),
+    url("~/assets/fondo-login.png") center / cover no-repeat !important;
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 1264px) {
+  .v-data-table .v-table__wrapper > table {
+    min-width: 760px;
+  }
+}
+
+@media (max-width: 960px) {
+  .v-container {
+    padding-left: var(--space-4) !important;
+    padding-right: var(--space-4) !important;
+  }
+
+  .app-main__inner {
+    min-height: auto;
+  }
+
+  .v-data-table .v-table__wrapper > table {
+    min-width: 680px;
+  }
+
+  .login-card {
+    margin: var(--space-4) !important;
+    padding: var(--space-6) !important;
+  }
+
+  .logo-box {
+    width: 78px;
+    height: 78px;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    background: #ffffff !important;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: none !important;
+}
+
+  .header-user-trigger {
+    padding-inline: 6px;
+    gap: 8px;
+  }
+
+  .v-container.py-8 {
+    padding-top: 20px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .main-card,
+  .v-card {
+    border-radius: var(--radius-lg) !important;
+  }
+
+  .v-dialog .v-card {
+    border-radius: var(--radius-lg) !important;
+  }
+}

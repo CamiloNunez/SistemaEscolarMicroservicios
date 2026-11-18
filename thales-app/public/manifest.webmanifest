@@ -1,0 +1,12 @@
+{
+  "id": "/",
+  "name": "IEP Thales de Mileto",
+  "short_name": "Thales",
+  "lang": "es",
+  "start_url": "/dashboard/academico?modulo=asistencias",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1565c0",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>com.thales_mileto</groupId><artifactId>pruebas-rendimiento</artifactId><version>1.0.0</version><packaging>pom</packaging>
+ <properties>
+  <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  <load.users>1</load.users><load.ramp>1</load.ramp><load.duration>20</load.duration>
+  <load.pause>1000</load.pause><load.host>localhost</load.host><load.protocol>http</load.protocol>
+  <load.run>directo</load.run>
+ </properties>
+ <build><directory>${project.basedir}/target/${load.run}</directory><plugins>
+  <plugin>
+   <groupId>com.lazerycode.jmeter</groupId><artifactId>jmeter-maven-plugin</artifactId><version>3.8.0</version>
+   <executions>
+    <execution><id>configuration</id><goals><goal>configure</goal></goals></execution>
+    <execution><id>load</id><goals><goal>jmeter</goal></goals></execution>
+    <execution><id>check</id><goals><goal>results</goal></goals></execution>
+   </executions>
+   <configuration>
+    <jmeterVersion>5.6.3</jmeterVersion>
+    <generateReports>true</generateReports>
+    <testResultsTimestamp>false</testResultsTimestamp>
+    <errorRateThresholdInPercent>1</errorRateThresholdInPercent>
+    <jMeterProcessJVMSettings><xms>512</xms><xmx>2048</xmx></jMeterProcessJVMSettings>
+    <propertiesUser>
+     <users>${load.users}</users><ramp>${load.ramp}</ramp><duration>${load.duration}</duration>
+     <pause>${load.pause}</pause><host>${load.host}</host><protocol>${load.protocol}</protocol>
+     <jmeter.save.saveservice.output_format>csv</jmeter.save.saveservice.output_format>
+     <jmeter.save.saveservice.thread_counts>true</jmeter.save.saveservice.thread_counts>
+     <jmeter.save.saveservice.timestamp_format>ms</jmeter.save.saveservice.timestamp_format>
+    </propertiesUser>
+   </configuration>
+  </plugin>
+ </plugins></build>
+</project>
+
